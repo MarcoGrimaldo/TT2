@@ -1,37 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
 import db from './APIs/firebase.config';
+import { ref, onValue, get, query} from "firebase/database";
 import React,{useEffect} from 'react';
-import {  doc, getDoc, collection, query, where } from "firebase/firestore";
 
 function App() {
 
-  const fetchBlogs = async() => {
+  const fetchBlogs = async () => {
 
-    const docRef = doc(db, "froggy-4cd76-default-rtdb", "data");
-    const docSnap = await getDoc(docRef);
+    const dbRef = ref(db, 'data/');
 
-    if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data());
-    } else {
-      // doc.data() will be undefined in this case
-      console.log("No such document!");
-    }
+    const usersSnapshot = await get(query(dbRef)) //This should get the whole users node from db.
 
-    const citiesRef = collection(db, "cities");
+    console.log(usersSnapshot)
 
-    // Create a query against the collection.
-    const q = query(citiesRef, where("state", "==", "CA"));
-    console.log(q)
-
-    //const dataRef = collection(db,"froggy-4cd76-default-rtdb");
-    //console.log(dataRef);
-    //const data = await setDoc(doc())
-    //const data=await response.get();
-    //data.docs.forEach(item=>{
-    // setBlogs(data.data());
-    //}
+    //To add a listener you can use the onValue() method like,
+    onValue(query(dbRef), snapshot => {
+      console.log(snapshot.val())
+    })
   }
+
   useEffect(() => {
     fetchBlogs();
   }, [])
@@ -49,7 +37,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          TT2 
         </a>
       </header>
     </div>
