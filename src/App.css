@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar{
+  background-color: #3F3F44;
+}
+.footer>p{
+  color: white;
+  margin: 0;
+}
+
+.footer{
+  padding-block: 1rem;
+  background-color: #3F3F44;
+}
+
+.bg-card-back{
+  background-color: #D5EEBB !important;
+}
+
+.var-container{
+  padding-block: 2rem;
+}
+
+.image-status{
+  width: 50%;
+}
