@@ -4,11 +4,16 @@ import {Row,
         Col,
         Image
 } from 'react-bootstrap';
-import ImgAlert from '../images/alert.png'
-//import ImgChecked from '../images/checked.png'
-//import ImgWarning from '../images/warning.png'
+//import ImgAlert from '../images/alert.png'
+import ImgChecked from '../images/checked.png'
+import ImgWarning from '../images/warning.png'
 
-const Status = () => {
+const Status = ({flagTemp, flagPh, flagRh}) => {
+    //Text in modals
+    const TEMP_TXT = 'Texto Temperatura'
+    const RH_TXT = 'Texto RH'
+    const PH_TXT = 'PH Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus leo gravida, vehicula augue vel, scelerisque tortor. Proin ut iaculis justo, non tempor ante. Quisque in ante blandit, tincidunt orci porta, pretium tellus. Vestibulum mi nisi, commodo at nulla ac, ultrices semper est. Suspendisse potenti. Sed in interdum augue.'
+
     return (
         <Container className="var-container">
             <Row>
@@ -16,7 +21,10 @@ const Status = () => {
             </Row>
             <Row>
                 <div>
-                    <h3 >Todo en orden</h3>
+                {flagTemp || flagPh || flagRh ? 
+                    <h3 >¡Variables fuera de rango!</h3>
+                    :<h3 >Todo en orden</h3>
+                }
                 </div>
                 
             </Row>
@@ -27,16 +35,18 @@ const Status = () => {
                 <Col lg={9}>
                     <div>
                         <p style={{textAlign:'justify'}} >
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Curabitur scelerisque maximus placerat. In fermentum tempor nisl. 
-                            Cras auctor vel mi quis tristique. Mauris vulputate mollis sapien id eleifend. 
-                            Curabitur pellentesque tellus posuere arcu viverra, at consequat diam tristique. 
-                            Quisque ac pharetra sem, vitae aliquet nulla. Phasellus a facilisis tellus. 
+                        {flagTemp || flagPh || flagRh ? 
+                            ''
+                            :'AAAAAAAAA'
+                        }
+                            {flagTemp ? TEMP_TXT : ''}
+                            {flagRh ? RH_TXT : ''}
+                            {flagPh ? PH_TXT : ''}
                         </p>
                     </div>
                 </Col>
                 <Col lg={3}>
-                    <Image src={ImgAlert} fluid rounded width="50%"/>
+                    <Image src={flagTemp || flagPh || flagRh ? ImgWarning : ImgChecked} fluid rounded width="50%"/>
                 </Col>
             </Row>
         </Container>

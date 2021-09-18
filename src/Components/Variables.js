@@ -5,7 +5,7 @@ import {Row,
         Card
 } from 'react-bootstrap';
 
-const Variables = ({temp,ph,hum}) => {
+const Variables = ({temp,ph,hum,flagTemp, flagPh, flagRh}) => {
     return (
         <Container className="var-container">
             <Row>
@@ -14,7 +14,8 @@ const Variables = ({temp,ph,hum}) => {
             <Row lg="3" md="1" sm="1">
                 <Col sm="1">
                 <Card
-                        bg="card-back"
+                        bg={flagTemp?"card-back-red":"card-back"}
+                        
                     >
                         <Card.Body>
                         <Card.Title>
@@ -34,7 +35,7 @@ const Variables = ({temp,ph,hum}) => {
                 </Col>
                 <Col  sm="1">
                     <Card
-                        bg="card-back"
+                        bg={flagRh?"card-back-red":"card-back"}
                     >
                         <Card.Body>
                         <Card.Title>
@@ -54,7 +55,7 @@ const Variables = ({temp,ph,hum}) => {
                 </Col>
                 <Col  sm="1">
                 <Card
-                        bg="card-back"
+                        bg={flagPh?"card-back-red":"card-back"}
                     >
                         <Card.Body>
                         <Card.Title>

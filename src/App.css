@@ -53,6 +53,9 @@
 .bg-card-back{
   background-color: #D5EEBB !important;
 }
+.bg-card-back-red{
+  background-color: #ec9a9a !important;
+}
 
 .var-container{
   padding-block: 2rem;
@@ -61,3 +64,29 @@
 .image-status{
   width: 50%;
 }
+div.col-sm-1{
+  padding-bottom: 1rem;
+}
+
+#user-hi{
+  position: absolute;
+  top: 25%;
+  left: 40%;
+}
+
+@media (max-width: 800px) {
+  #user-hi{
+    position: absolute;
+    top: 12%;
+    left: 15%;
+  }
+}
+
+@media (min-width: 800px) {
+  #user-hi{
+    position: absolute;
+    top: 20%;
+    left: 35%;
+  }
+}
+
