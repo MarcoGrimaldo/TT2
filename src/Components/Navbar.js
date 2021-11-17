@@ -6,6 +6,8 @@ import {Navbar,
         Button
     } from 'react-bootstrap';
 
+import {Link} from "react-router-dom";
+
 
 const NavbarComponent = () => {
     return (
@@ -17,7 +19,7 @@ const NavbarComponent = () => {
                     <Nav className="me-auto">
                     </Nav>
                     <Nav>
-                        <Button variant="dark">Salir</Button>
+                        <Link to="/"><Button variant="dark">Salir</Button></Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
