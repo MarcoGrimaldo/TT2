@@ -68,14 +68,14 @@ const Monitor = (state) => {
       setflagTemp(false);
     }
     //Show the alert for PH
-    if(parseInt(arrayData[0]) < data.rh.minData || parseInt(arrayData[0]) > data.rh.maxData ){
+    if(parseInt(arrayData[0]) < data.ph.minData || parseInt(arrayData[0]) > data.ph.maxData ){
       setflagPh(true);
     }
     else{
       setflagPh(false);
     }
     //Show the alert for RH
-    if(parseInt(arrayData[2]) < data.ph.minData || parseInt(arrayData[2]) > data.ph.maxData ){
+    if(parseInt(arrayData[2]) < data.rh.minData || parseInt(arrayData[2]) > data.rh.maxData ){
       setflagRh(true);
     }
     else{
