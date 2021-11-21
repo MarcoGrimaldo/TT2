@@ -1,17 +1,53 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import {Row, 
         Container,
         Col, 
-        Card
+        Card,
+        Toast,
 } from 'react-bootstrap';
+
+//Images
+import ImgAlert from '../images/alert.png'
+
+//Data
+import data from '../data/dataFroggy.json';
 
 const Variables = ({temp,ph,hum,flagTemp, flagPh, flagRh}) => {
 
-  //const [showA, setShowA] = useState(true);
-  //const [showB, setShowB] = useState(true);
+  const [showA, setShowA] = useState(false);
+  const [showB, setShowB] = useState(false);
+  const [showC, setShowC] = useState(false);
 
-  //const toggleShowA = () => setShowA(!showA);
-  //const toggleShowB = () => setShowB(!showB);
+  const toggleShowA = () => setShowA(!showA);
+  const toggleShowB = () => setShowB(!showB);
+  const toggleShowC = () => setShowC(!showC);
+
+  useEffect(() => {
+      checkVariables();
+      // eslint-disable-next-line
+  }, [temp,ph,hum])
+
+  const checkVariables = () => {
+      //Show the alert for temp
+    if(temp < data.temp.minData || temp > data.temp.maxData ){
+        setShowA(true);
+    }
+    else{
+        setShowA(false);
+    }
+    if(hum < data.rh.minData || hum > data.rh.maxData ){
+        setShowB(true);
+    }
+    else{
+        setShowB(false);
+    }
+    if(ph < data.ph.minData || ph > data.ph.maxData ){
+        setShowC(true);
+    }
+    else{
+        setShowC(false);
+    }
+  }
 
     return (
         <Container className="var-container">
@@ -39,19 +75,20 @@ const Variables = ({temp,ph,hum,flagTemp, flagPh, flagRh}) => {
                         </Card.Text>
                         </Card.Body>
                     </Card>
-                    {/*
+                    
                     <Toast show={showA} onClose={toggleShowA}>
                         <Toast.Header>
                             <img
-                            src="holder.js/20x20?text=%20"
+                            src={ImgAlert}
                             className="rounded me-2"
                             alt=""
+                            width="30"
                             />
-                            <strong className="me-auto">Bootstrap</strong>
-                            <small>11 mins ago</small>
+                            <strong className="me-auto">¡Alerta!</strong>
                         </Toast.Header>
-                        <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
-                    </Toast>*/}
+                        <Toast.Body>{data.temp.toastData}</Toast.Body>
+                    </Toast>
+
                 </Col>
                 <Col  sm="1">
                     <Card
@@ -72,6 +109,18 @@ const Variables = ({temp,ph,hum,flagTemp, flagPh, flagRh}) => {
                         </Card.Text>
                         </Card.Body>
                     </Card>
+                    <Toast show={showB} onClose={toggleShowB}>
+                        <Toast.Header>
+                            <img
+                            src={ImgAlert}
+                            className="rounded me-2"
+                            alt=""
+                            width="30"
+                            />
+                            <strong className="me-auto">¡Alerta!</strong>
+                        </Toast.Header>
+                        <Toast.Body>{data.rh.toastData}</Toast.Body>
+                    </Toast>
                 </Col>
                 <Col  sm="1">
                 <Card
@@ -92,6 +141,18 @@ const Variables = ({temp,ph,hum,flagTemp, flagPh, flagRh}) => {
                         </Card.Text>
                         </Card.Body>
                     </Card>
+                    <Toast show={showC} onClose={toggleShowC}>
+                        <Toast.Header>
+                            <img
+                            src={ImgAlert}
+                            className="rounded me-2"
+                            alt=""
+                            width="30"
+                            />
+                            <strong className="me-auto">¡Alerta!</strong>
+                        </Toast.Header>
+                        <Toast.Body>{data.ph.toastData}</Toast.Body>
+                    </Toast>
                 </Col>
             </Row>
         </Container>

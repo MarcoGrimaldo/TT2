@@ -1,0 +1,23 @@
+{
+    "temp":{
+        "maxData":25,
+        "minData":15,
+        "toastData":"La temperatura está fuera de rango, por favor verificar las condiciones del ambiente artificial. Recuerde que el rango ideal está entre 15°C a 25°C",
+        "statusLowerData":"La temperatura dentro del ambiente artificial está debajo del rango ideal, las bajas temperaturas afectan a las ranas arborícolas, ya que necesitan una temperatura cálida de al menos 15 °C. Intente acercar algún tipo de calefacción. ",
+        "statusUpperData":"La temperatura dentro del ambiente artificial está por arriba del rango ideal, las altas temperaturas afectan a las ranas arborícolas, ya que son sensibles a partir de los 25 °C. Verifique que no exista algún tipo de calefacción, o el ambiente artificial no esté directamente en la luz solar. "
+    },
+    "rh":{
+        "maxData":90,
+        "minData":50,
+        "toastData":"La Humedad Relativa está fuera de rango, por favor verificar las condiciones del ambiente artificial. Recuerde que el rango ideal está entre 50% a 90%",
+        "statusLowerData":"Parece que la humedad está debajo del rango ideal, es indispensable que el ambiente artificial contenga una humedad relativa de al menos 50%. Verifique que el ambiente artificial esté bien cerrado y que contenga el agua suficiente para obtener humedad. ",
+        "statusUpperData":"Parece que la humedad está por arriba del rango ideal, el ambiente artificial necesita una humedad relativa de máximo 90%.  Destape el ambiente artificial por un momento hasta que se estabilice, de igual manera verifique la temperatura y el agua. "
+    },
+    "ph":{
+        "maxData":8.5,
+        "minData":6.5,
+        "toastData":"El PH está fuera de rango, por favor verificar las condiciones del ambiente artificial. Recuerde que el rango ideal está entre 6.5 a 8.5",
+        "statusLowerData":"El pH del agua está por debajo de los rangos ideales, el pH mínimo es de 6.5 se necesita verificar las impurezas filtradas y cambiar el agua inmediatamente, ya que el pH es ácido y es completamente peligroso para las ranas arborícolas. ",
+        "statusUpperData":"El pH del agua está por arriba de los rangos ideales, el pH máximo es de 8.5 se necesita verificar las impurezas filtradas y cambiar el agua inmediatamente, ya que el pH es alcalino y es completamente peligroso para las ranas arborícolas. "
+    }
+}

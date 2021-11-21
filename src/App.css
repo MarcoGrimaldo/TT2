@@ -90,3 +90,8 @@ div.col-sm-1{
   }
 }
 
+.toast{
+  width: 100% !important;
+  margin-top: 1rem;
+}
+

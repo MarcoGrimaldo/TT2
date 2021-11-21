@@ -1,18 +1,62 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import {Row, 
         Container,
         Col,
         Image
 } from 'react-bootstrap';
+
 //import ImgAlert from '../images/alert.png'
 import ImgChecked from '../images/checked.png'
 import ImgWarning from '../images/warning.png'
 
-const Status = ({flagTemp, flagPh, flagRh}) => {
-    //Text in modals
-    const TEMP_TXT = 'Texto Temperatura'
-    const RH_TXT = 'Texto RH'
-    const PH_TXT = 'PH Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus leo gravida, vehicula augue vel, scelerisque tortor. Proin ut iaculis justo, non tempor ante. Quisque in ante blandit, tincidunt orci porta, pretium tellus. Vestibulum mi nisi, commodo at nulla ac, ultrices semper est. Suspendisse potenti. Sed in interdum augue.'
+//Data
+import data from '../data/dataFroggy.json';
+
+const Status = ({temp,ph,hum,flagTemp, flagPh, flagRh}) => {
+    //Text recomentations
+    const [tempTxt, settempTxt] = useState('');
+    const [rhTxt, setrhTxt] = useState('');
+    const [phTxt, setphTxt] = useState('');
+
+    useEffect(() => {
+        checkVariables();
+        // eslint-disable-next-line
+    }, [temp,ph,hum])
+  
+    const checkVariables = () => {
+        //Show the text for temp
+      if(temp < data.temp.minData ){
+        settempTxt(data.temp.statusLowerData);
+      }
+      else if(temp > data.temp.maxData){
+        settempTxt(data.temp.statusUpperData);
+      }
+      else{
+        settempTxt('');
+      }
+
+      //Show the txt for rh
+      if(hum < data.rh.minData ){
+        setrhTxt(data.rh.statusLowerData);
+      }
+      else if(hum > data.rh.maxData){
+        setrhTxt(data.rh.statusUpperData);
+      }
+      else{
+        setrhTxt('');
+      }
+
+      //Show the txt for ph
+      if(ph < data.ph.minData ){
+        setphTxt(data.ph.statusLowerData);
+      }
+      else if(ph > data.ph.maxData){
+        setphTxt(data.ph.statusUpperData);
+      }
+      else{
+        setphTxt('');
+      }
+    }
 
     return (
         <Container className="var-container">
@@ -37,11 +81,11 @@ const Status = ({flagTemp, flagPh, flagRh}) => {
                         <p style={{textAlign:'justify'}} >
                         {flagTemp || flagPh || flagRh ? 
                             ''
-                            :'AAAAAAAAA'
+                            :'¡Muy bien! Todas las variables están dentro de los rangos ideales. Hay ranas felices. 🐸'
                         }
-                            {flagTemp ? TEMP_TXT : ''}
-                            {flagRh ? RH_TXT : ''}
-                            {flagPh ? PH_TXT : ''}
+                            {flagTemp ? tempTxt : ''}
+                            {flagRh ? rhTxt : ''}
+                            {flagPh ? phTxt : ''}
                         </p>
                     </div>
                 </Col>
