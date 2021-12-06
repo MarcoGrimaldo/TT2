@@ -56,7 +56,7 @@ const Monitor = (state) => {
   //Split the data "xx.xx , xx.xx, xx.xx"
   const getDataString = (dataString) => {
     var arrayData = dataString.split(',');
-    setdataPh(arrayData[0]+2);
+    setdataPh(parseInt(arrayData[0])+3.5);
     setdataTemp(arrayData[1]);
     setdataHr(arrayData[2]);
     
@@ -68,7 +68,7 @@ const Monitor = (state) => {
       setflagTemp(false);
     }
     //Show the alert for PH
-    if(parseInt(arrayData[0]) < data.ph.minData || parseInt(arrayData[0]) > data.ph.maxData ){
+    if(parseInt(arrayData[0])+3.5 < data.ph.minData || parseInt(arrayData[0])+3.5 > data.ph.maxData ){
       setflagPh(true);
     }
     else{

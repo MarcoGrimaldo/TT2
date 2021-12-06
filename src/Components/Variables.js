@@ -133,7 +133,7 @@ const Variables = ({temp,ph,hum,flagTemp, flagPh, flagRh}) => {
                                 paddingBlock: '4rem'
                             }}
                             >
-                                pH { parseFloat(ph).toFixed(1)}
+                                pH { parseFloat(ph).toFixed(0)}
                             </h1>
                         </Card.Title>
                         <Card.Text style={{fontSize:'30px'}}>
