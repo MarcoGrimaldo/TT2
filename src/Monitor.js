@@ -56,7 +56,7 @@ const Monitor = (state) => {
   //Split the data "xx.xx , xx.xx, xx.xx"
   const getDataString = (dataString) => {
     var arrayData = dataString.split(',');
-    setdataPh(arrayData[0]);
+    setdataPh(arrayData[0]+2);
     setdataTemp(arrayData[1]);
     setdataHr(arrayData[2]);
     
