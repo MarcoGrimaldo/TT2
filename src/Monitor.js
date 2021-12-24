@@ -87,6 +87,7 @@ const Monitor = (state) => {
   useEffect(() => {
     checkAuth();
     fetchData();
+    localStorage.setItem('user', state);
     // eslint-disable-next-line
   }, [])
 
@@ -95,6 +96,9 @@ const Monitor = (state) => {
             <div className="App">
             <NavbarComponent userEmail={state}/>
             <FluidComponent />
+            <div className="d-flex justify-content-center mt-3">
+              <h2 className="text-danger ">❌ Ambiente no conectado</h2>
+            </div>
             <Variables temp={dataTemp} ph={dataPh} hum={dataHr} flagTemp={flagTemp} flagPh={flagPh} flagRh={flagRh}/>
             <Status temp={dataTemp} ph={dataPh} hum={dataHr} flagTemp={flagTemp} flagPh={flagPh} flagRh={flagRh} />
             <Footer />

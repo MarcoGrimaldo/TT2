@@ -51,7 +51,9 @@ const NavbarComponent = () => {
                     <Nav className="me-auto">
                     </Nav>
                     <Nav>
-                        <Link to="/"><Button variant="dark">Salir</Button></Link>
+                        <Link to="/monitoreo"><Button variant="dark">Monitoreo</Button></Link>
+                        <Link to="/graficas"><Button variant="dark">Gráficas</Button></Link>
+                        <Link to="/"><Button variant="danger">Salir</Button></Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
